@@ -26,10 +26,17 @@ app.get('/', (req, res) => {
 });
 
 app.post('/createCSV', (req, res) => {
-  let data = JSON.parse(req.body.jsonData);
-  let csv = createCSV(data); //This function will generate a csv file, store in csvFiles, and return the filename
-  //res.sendFile(csvFiles/csv);
-  res.redirect('/');
+  let { filename, data } = req.body;
+
+  //This function will generate a csv file, store in csvFiles, and send back the CSV file
+  createCSV(filename, JSON.parse(data), (err, data) => {
+    if(err) {
+      res.send('Uh Oh, something did not work correctly');
+    } else {
+      res.send(data);
+    }
+  });
+  // res.redirect('/');
 });
 
 app.listen(3000, () => console.log('Server is up and running on Port 3000...'));
