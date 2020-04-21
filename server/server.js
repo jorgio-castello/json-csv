@@ -12,17 +12,11 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '../client')));
-
-
-
-
-
-
-
+app.set('view engine', 'ejs');
 
 
 app.get('/', (req, res) => {
-  res.send('Goodybe World');
+  res.render('report');
 });
 
 app.post('/createCSV', (req, res) => {
@@ -33,10 +27,9 @@ app.post('/createCSV', (req, res) => {
     if(err) {
       res.send('Uh Oh, something did not work correctly');
     } else {
-      res.send(data);
+      res.render('report', {data: data});
     }
   });
-  // res.redirect('/');
 });
 
 app.listen(3000, () => console.log('Server is up and running on Port 3000...'));

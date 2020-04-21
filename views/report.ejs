@@ -16,6 +16,24 @@
         <button type="submit">Submit</button>
       </label>
     </form>
+
+    <table>
+      <tr>
+        <% for(let i = 0; i < data[0].length; i++) {%>
+          <th><%= data[0][i] %></th>
+        <% } %>
+      </tr>
+
+      <% for(let i = 1; i < data.length; i++) { %>
+        <tr>
+          <% for(let j = 0; j < data[i].length; j++) { %>
+            <td><%= data[i][j] %></td>
+          <% } %>
+        </tr>
+      <% } %>
+
+    </table>
+
    <script type="module" src="./app.js"></script>
   </body>
 </html>

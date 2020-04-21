@@ -22,3 +22,24 @@ button {
   font-size: 20px;
   border-radius: 5px;
 }
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  margin-top: 25px;
+  text-align: left;
+}
+
+th, td {
+  height: 50px;
+  padding-left: 5px;
+  width: 125px;
+}
+
+tr:nth-child(odd) {
+  background-color: #d3d3d3;
+}
+
+table, th, td {
+  border: 1px solid black;
+}

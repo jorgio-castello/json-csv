@@ -54,7 +54,7 @@ let createCSVFromJSON = parsedData => {
       if(json[colName]) {
         row.push(json[colName]); //push that data into the row
       } else {
-        row.push('');
+        row.push('-');
       }
     });
     output.push(row.join(',')); //push the row formatted as a comma separated string into the output
@@ -77,7 +77,15 @@ let createCSV = function(filename, parsedData, callback) {
     if(err) {
       callback(err);
     } else {
-      callback(null, file);
+      fs.readFile(file, 'utf-8', (err, fileContents) => {
+        if(err) {
+          callback(err);
+        } else {
+          fileContents = fileContents.split(os.EOL);
+          fileContents = fileContents.map(row => row.split(','));
+          callback(null, fileContents);
+        }
+      });
     }
   });
 
