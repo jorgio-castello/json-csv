@@ -7,8 +7,11 @@
   <body>
     <h1>JSON to CSV</h1>
     <form action="/createCSV" method="POST">
+      <label id="filename" for="csvFileName">
+        <input type="text" name="csvFileName" placeholder="fileName">
+      </label>
       <label id="jsonDataLabel" for="jsonData">
-        <textarea rows="20" cols="100" id="jsonData" name="jsonData"></textarea>
+        <textarea rows="20" cols="100" id="jsonData" name="jsonData" placeholder="Add JSON here..."></textarea>
         <br>
         <button type="submit">Submit</button>
       </label>
