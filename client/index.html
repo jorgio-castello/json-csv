@@ -2,8 +2,17 @@
 <html>
   <head>
     <title>JSON to CSV</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <h1>JSON to CSV</h1>
+    <form action="/createCSV" method="POST">
+      <label id="jsonDataLabel" for="jsonData">
+        <textarea rows="20" cols="100" id="jsonData" name="jsonData"></textarea>
+        <br>
+        <button type="submit">Submit</button>
+      </label>
+    </form>
    <script type="module" src="./app.js"></script>
   </body>
 </html>
