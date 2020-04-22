@@ -19,8 +19,13 @@ textarea {
 
 button {
   width: 100px;
-  font-size: 20px;
+  font-size: 16px;
   border-radius: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+  background: lightgray;
 }
 
 table {
@@ -42,4 +47,9 @@ tr:nth-child(odd) {
 
 table, th, td {
   border: 1px solid black;
+}
+
+.csv-download-btn {
+  margin-top: 15px;
+  width: 200px;
 }

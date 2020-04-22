@@ -17,22 +17,24 @@
       </label>
     </form>
 
-    <table>
-      <tr>
-        <% for(let i = 0; i < data[0].length; i++) {%>
-          <th><%= data[0][i] %></th>
-        <% } %>
-      </tr>
-
-      <% for(let i = 1; i < data.length; i++) { %>
+    <% if(data) { %>
+      <button id="<%=data.filename%>" class="csv-download-btn">Download CSV</button>
+      <table>
         <tr>
-          <% for(let j = 0; j < data[i].length; j++) { %>
-            <td><%= data[i][j] %></td>
+          <% for(let i = 0; i < data.contents[0].length; i++) {%>
+            <th><%= data.contents[0][i] %></th>
           <% } %>
         </tr>
-      <% } %>
 
-    </table>
+        <% for(let i = 1; i < data.contents.length; i++) { %>
+          <tr>
+            <% for(let j = 0; j < data.contents[i].length; j++) { %>
+              <td><%= data.contents[i][j] %></td>
+            <% } %>
+          </tr>
+        <% } %>
+      </table>
+    <% } %>
 
    <script type="module" src="./app.js"></script>
   </body>

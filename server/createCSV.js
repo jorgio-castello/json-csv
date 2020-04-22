@@ -81,9 +81,15 @@ let createCSV = function(filename, parsedData, callback) {
         if(err) {
           callback(err);
         } else {
+          let presentationObj = {
+            'filename': path.basename(file)
+          };
+
           fileContents = fileContents.split(os.EOL);
           fileContents = fileContents.map(row => row.split(','));
-          callback(null, fileContents);
+          presentationObj.contents = fileContents;
+
+          callback(null, presentationObj);
         }
       });
     }
