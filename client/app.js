@@ -38,3 +38,21 @@ form.addEventListener('submit', e => {
   .catch(err => console.log(err));
 });
 
+//Upload file event listener
+document.getElementById('uploadFile').addEventListener('change', e => {
+  let file = e.target.files[0];
+  let extensionIdx = file.name.indexOf('.');
+
+  let fileName = file.name.slice(0, extensionIdx);
+  let fileJSON;
+
+  let reader = new FileReader();
+  reader.onload = e => {
+    let filename = document.querySelector('#filename').value = fileName;
+    let data = document.querySelector('#data').value = e.target.result;
+  }
+
+  reader.readAsText(file);
+
+});
+

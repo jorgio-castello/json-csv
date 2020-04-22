@@ -8,6 +8,9 @@
     <body>
       <h1>JSON to CSV</h1>
       <form action="/createCSV" method="POST">
+        <label for="uploadFile">
+          <input type="file" id="uploadFile" name="uploadFile">
+        </label>
         <label for="filename">
           <input id="filename" type="text" name="filename" placeholder="File name...">
         </label>
