@@ -16,7 +16,14 @@ form.addEventListener('submit', e => {
     let div = document.createElement('div');
     div.setAttribute('class', 'csvContainer');
     div.innerHTML = table;
+
+    if(document.querySelector('table')) {
+      let container = document.querySelector('.csvContainer');
+      container.remove();
+    }
+
     document.querySelector('html').append(div);
+
 
     //Event Listener to download CSV file
     let downloadBtn = document.querySelector('.csv-download-btn');
